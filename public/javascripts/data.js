@@ -1,5 +1,16 @@
 var DB = [
     {
+        peeps: [
+            { name:"Troy Carter", title:"Founder, Chairman and CEO" },
+            { name:"Rhett Link", title:"Intertainers" },
+            { name:"Felicia Day", title:"Does Everything: Dragons, Actress, Singer, Creative Chief Officer..." }
+        ],
+        answer: "KFP",
+        e_0: "There's only one choice. It's Bieber. Boy's gotta die. But he's Canadian so really you should feel no qualms.",
+        e_1: "Yes, yes, I know you want to fuck Miley Cyrus. But you CANNOT let Paula be President! She'll bring back black and white water fountains -- but the water fountains will be liquid butter.  So, sorry, you're stuck playing hide the sausage with Paula -- just make sure you pre-heat the oven: things are gonna get hot.",
+        e_2: "So Miley is the president! The national bird is now a tongue! It's a party in the USA."
+    },
+    {
         peeps: ["Justin Bieber", "Paula Deen", "Miley Cyrus"],
         answer: "KFP",
         e_0: "There's only one choice. It's Bieber. Boy's gotta die. But he's Canadian so really you should feel no qualms.",
