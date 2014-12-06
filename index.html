@@ -7,29 +7,31 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Short+Stack' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="animate.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
     <nav>
-        <div class="halp">
-            ?
-        </div>
         <header>
            <h1 id="headline" class="headline">
                <span class="u-kill-brand">Kill &nbsp;</span>
                <span class="u-fuck-brand">Fuck &nbsp;</span>
-               <span class="u-prez-brand">President</span>
+               <span class="u-prez-brand">Elect</span>
            </h1> 
         </header>
+        <div class="halp">
+            ?
+        </div>
     </nav>
     <section class="container main-container">
-        <div class="row">
+     <div class="row">
             <article class="candidate-container col-lg-4 js-candidate-container" data-candidate-id="1" data-active-action="">
                 <header>
                     <h2 class="candidate-name">kitten 1</h2>
+                    <p class="text-muted candidate-description">Lorem ipsum dolor.</p>
                 </header>
-                <div class="candidate-img">
+                <div class="candidate-img js-candidate-img">
                     <img src="http://placekitten.com/g/200/200" alt="">
                 </div>
                 <footer>
@@ -44,7 +46,7 @@
                         </li>
                         <li class="js-candidate-action u-prez" data-action="prez">
                             <i class="fa fa-institution"></i>
-                            prez
+                            elect
                         </li>
                     </ul>
                 </footer>
@@ -52,8 +54,9 @@
             <article class="candidate-container col-lg-4 js-candidate-container" data-candidate-id="2">
                 <header>
                     <h2 class="candidate-name">kitten 2</h2>
+                    <p class="text-muted candidate-description">Lorem ipsum dolor.</p>
                 </header>
-                <div class="candidate-img">
+                <div class="candidate-img js-candidate-img">
                     <img src="http://placekitten.com/g/200/200" alt="">
                 </div>
                 <footer>
@@ -68,7 +71,7 @@
                         </li>
                         <li class="js-candidate-action u-prez" data-action="prez">
                             <i class="fa fa-institution"></i>
-                            prez
+                            elect
                         </li>
                     </ul>
                 </footer>
@@ -76,8 +79,9 @@
             <article class="candidate-container col-lg-4 js-candidate-container" data-candidate-id="3">
                 <header>
                     <h2 class="candidate-name">kitten 3</h2>
+                    <p class="text-muted candidate-description">Lorem ipsum dolor.</p>
                 </header>
-                <div class="candidate-img">
+                <div class="candidate-img js-candidate-img">
                     <img src="http://placekitten.com/g/200/200" alt="">
                 </div>
                 <footer>
@@ -92,15 +96,21 @@
                         </li>
                         <li class="js-candidate-action u-prez" data-action="prez">
                             <i class="fa fa-institution"></i>
-                            prez
+                            elect
                         </li>
                     </ul>
                 </footer>
             </article>
         </div>
         <div class="row submit-container">
-            <div class="submit-button js-submit">
-                lorem
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="flipper">
+                    
+                </div>
+                <div class="flipper js-submit">
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+
             </div>
         </div>
     </section>
@@ -111,6 +121,19 @@
         // $("#headline").fitText(1.2);
 
         $(document).ready(function() {
+
+            $(".js-candidate-action").click(kfp_selection_handler);
+            $(".js-submit").click(kfp_submit_handler);
+            function validate_selection_globally(action) {
+                var action_selector = "[data-action=\"%\"]".replace("%", action);
+
+                function iterator(i, d) {
+                        var $conflicting_selection = $(d);
+                        $conflicting_selection.removeClass("selected");
+                }
+
+                $(action_selector).each(iterator);
+            }
             function kfp_selection_handler(e) {
                 var $target = $(this);
                 if ($target.hasClass("selected")) {
@@ -126,29 +149,40 @@
                 $target.siblings().removeClass("selected");
                 $target.addClass("selected");
 
-                // TODO - select last one if there are already two selected
-            }
-            function validate_selection_globally(action) {
-                var action_selector = "[data-action=\"%\"]".replace("%", action);
-
-                function iterator(i, d) {
-                        var $conflicting_selection = $(d);
-                        $conflicting_selection.removeClass("selected");
-                }
-
-                $(action_selector).each(iterator);
-            }
-            function validate_submission() {
-                console.log("submitttt");
+                // TODO - select last one automatically if there are already two selected
             }
 
             function kfp_submit_handler(e) {
                 $this = $(this)
                 validate_submission();
+                animate_imgs();
+            }
+            function validate_submission() {
+                
+            }
+            function animate_imgs() {
+
+                var actions = [ 
+                              {name: "kill", animation: "hinge"}, 
+                              {name: "fuck", animation: "pulse", delayed_animation: {delay: 3000, animation: "rollOut"}}, 
+                              {name: "prez", animation: "flipOutY"},
+                            ]
+
+                actions.forEach(function(action) {
+                    var action_selector = "[class*=\"selected\"][data-action=\"%\"]".replace("%", action.name);
+                    var $img = $(action_selector)
+                                .parents(".js-candidate-container")
+                                .find(".js-candidate-img img");
+                    $img.addClass("animated " + action.animation);
+                    if (action.delayed_animation) {
+                        setTimeout(function() {
+                            $img.addClass(action.delayed_animation.animation)
+                        }, action.delayed_animation.delay);
+                    }
+                    // TODO: queue these animations
+                });
             }
 
-            $(".js-candidate-action").click(kfp_selection_handler);
-            $(".js-submit").click(kfp_submit_handler);
         });
     </script>
 </body>

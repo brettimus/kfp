@@ -20,7 +20,6 @@ body {
     border-radius: 50em;
     color: #fff;
     cursor: hand;
-    display: inline-block;
     font-size: 18px;
     height: 30px;
     line-height: 30px;
@@ -28,6 +27,7 @@ body {
     position: fixed;
     text-align: center;
     top: 0;
+    right: 0;
     width: 30px;        
 }
 
@@ -49,7 +49,7 @@ nav:after {
 
     nav .headline {
         margin-top: 0;
-        text-align: center;
+        text-align: left;
     }
 
 /*header .headline {
@@ -59,64 +59,69 @@ nav:after {
     text-align: center;
 }*/
 
+.flipper {
+    background: black;
+    border-radius: 50em;
+    color: white;
+    height: 40px;
+    width: 40px;
+}
+
 .main-container {
     margin-top: 30px;
 }
 
 .candidate-container {
     box-sizing: border-box;
-    border: solid #0f1108 10px;
+    /*border: solid #0f1108 10px;*/
+    min-height: 400px;
     max-width: 500px;
     margin: 0 auto 10px auto;
     padding: 0;
-    text-align: center;
 }
+
     .candidate-container header {
         margin-bottom: 25px;
-        text-align: center;
     }
+
         .candidate-container header .candidate-name {
             font-family: Lato;
             font-size: 40px;
             font-weight: 300;
         }
-    .candidate-container .container-img {
+        .candidate-container header .candidate-description {
+            font-family: Lato;
+            font-size: 25px;
+            font-weight: 300;
+        }
+    .candidate-container .candidate-img {
         width: 100%;
     }
-        .candidate-container .container-img img {
+        .candidate-container .candidate-img img {
             border: solid;
             display: block;
+            float: left;
         }
     .candidate-container footer {
-        margin-top: 10px;
-        width: 100%;
+        float: left;
+    }
+    /*clearfix*/
+    .candidate-container footer:after {
+        clear: both;
+        content: "";
     }
         .candidate-container footer ul {
-            
-            box-sizing: border-box;
-            height: 60px;
             list-style-type: none;
-            margin: 25px 0 0 0;
+            margin-left: 10px;
             padding: 0;
-            width: 100%;
-        }
-        .candidate-container footer ul:after {
-            clear: both;
-            content: "";
         }
             .candidate-container footer ul li {
-                float: left;
                 font-size: 30px;
-                line-height: 50px;
-                height: 60px;
-                width: 33.33%;
-            }
-            .candidate-container footer ul li:last-child {
-                border-right: none;
+                line-height: 65px;
+                height: 65px;
             }
             .candidate-container footer ul li:hover {
                 cursor: hand;
-                /*background: #ada0a6;*/
                 opacity: 0.7;
             }
 
@@ -191,13 +196,9 @@ nav:after {
 }
 
 @media (min-width: 1200px) {
-  .candidate-container {
-    border-right: none;
-  }
-  .candidate-container:last-child {
-      border-right: solid #0f1108 10px;
-  }
-
+/*    .candidate-container footer ul li {
+        height: 65px;
+    }*/
   .submit-container .submit-button {
     margin: 0 auto;
     width: 33.33%;
