@@ -184,6 +184,47 @@ nav:after {
     content: "";
 }
 
+
+/* landing page stuff */
+.lp-feature {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.lp-circ {
+    background: rgba(0,0,0, 0.25);
+    border-radius: 50em;
+    border: solid black 5px;
+    /*color: white;*/
+    height: 150px;
+    margin: 5px auto;
+    padding: 10px;
+    width: 150px;
+}
+.lp-demo-button {
+    background: black;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    font-size: 35px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    opacity: 0.8;
+    width: 250px;
+
+    animation: opacity 800ms ease-in;
+}
+.lp-demo-button:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+
+    animation: opacity 800ms ease-in;
+}
+
+/* responsivity */
+
 @media (min-width: 460px) {
     nav .headline {
         font-size: 36px;
