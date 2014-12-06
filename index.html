@@ -6,60 +6,150 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Short+Stack' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Bonbon' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1 class="kfp-header">
-        <span class="u-kill">Kill</span>.<span class="u-fuck">Fuck</span>.<span class="u-prez">President</span></h1>
-    <section class="container">
-        <article class="candidate-container col-lg-4 js-candidate-1">
-            <header>
-                <h2 class="">kitten 1</h2>
-            </header>
-            <div class="candidate-img">
-                <img src="http://placekitten.com/g/200/200" alt="">
+
+    <nav>
+        <div class="halp">
+            ?
+        </div>
+        <header>
+           <h1 id="headline" class="headline">
+               <span class="u-kill-brand">Kill &nbsp;</span>
+               <span class="u-fuck-brand">Fuck &nbsp;</span>
+               <span class="u-prez-brand">President</span>
+           </h1> 
+        </header>
+    </nav>
+    <section class="container main-container">
+        <div class="row">
+            <article class="candidate-container col-lg-4 js-candidate-container" data-candidate-id="1" data-active-action="">
+                <header>
+                    <h2 class="candidate-name">kitten 1</h2>
+                </header>
+                <div class="candidate-img">
+                    <img src="http://placekitten.com/g/200/200" alt="">
+                </div>
+                <footer>
+                    <ul class="">
+                        <li class="js-candidate-action u-kill" data-action="kill">
+                            <i class="fa fa-bomb"></i>
+                            kill
+                        </li>
+                        <li class="js-candidate-action u-fuck" data-action="fuck">
+                            <i class="fa fa-thumbs-up"></i>
+                            fuck
+                        </li>
+                        <li class="js-candidate-action u-prez" data-action="prez">
+                            <i class="fa fa-institution"></i>
+                            prez
+                        </li>
+                    </ul>
+                </footer>
+            </article>
+            <article class="candidate-container col-lg-4 js-candidate-container" data-candidate-id="2">
+                <header>
+                    <h2 class="candidate-name">kitten 2</h2>
+                </header>
+                <div class="candidate-img">
+                    <img src="http://placekitten.com/g/200/200" alt="">
+                </div>
+                <footer>
+                    <ul class="">
+                        <li class="js-candidate-action u-kill" data-action="kill">
+                            <i class="fa fa-bomb"></i>
+                            kill
+                        </li>
+                        <li class="js-candidate-action u-fuck" data-action="fuck">
+                            <i class="fa fa-thumbs-up"></i>
+                            fuck
+                        </li>
+                        <li class="js-candidate-action u-prez" data-action="prez">
+                            <i class="fa fa-institution"></i>
+                            prez
+                        </li>
+                    </ul>
+                </footer>
+            </article>
+            <article class="candidate-container col-lg-4 js-candidate-container" data-candidate-id="3">
+                <header>
+                    <h2 class="candidate-name">kitten 3</h2>
+                </header>
+                <div class="candidate-img">
+                    <img src="http://placekitten.com/g/200/200" alt="">
+                </div>
+                <footer>
+                    <ul class="js-candidate-action">
+                        <li class="js-candidate-action u-kill" data-action="kill">
+                            <i class="fa fa-bomb"></i>
+                            kill
+                        </li>
+                        <li class="js-candidate-action u-fuck" data-action="fuck">
+                            <i class="fa fa-thumbs-up"></i>
+                            fuck
+                        </li>
+                        <li class="js-candidate-action u-prez" data-action="prez">
+                            <i class="fa fa-institution"></i>
+                            prez
+                        </li>
+                    </ul>
+                </footer>
+            </article>
+        </div>
+        <div class="row submit-container">
+            <div class="submit-button js-submit">
+                lorem
             </div>
-            <footer>
-                <ul class="">
-                    <li class="u-kill">kill</li>
-                    <li class="u-fuck">fuck</li>
-                    <li class="u-prez">prez</li>
-                </ul>
-            </footer>
-        </article>
-        <article class="candidate-container col-lg-4 js-candidate-2">
-            <header>
-                <h2 class="">kitten 2</h2>
-            </header>
-            <div class="candidate-img">
-                <img src="http://placekitten.com/g/200/200" alt="">
-            </div>
-            <footer>
-                <ul class="js-">
-                    <li class="u-kill">kill</li>
-                    <li class="u-fuck">fuck</li>
-                    <li class="u-prez">prez</li>
-                </ul>
-            </footer>
-        </article>
-        <article class="candidate-container col-lg-4 js-candidate-3">
-            <header>
-                <h2 class="">kitten 3</h2>
-            </header>
-            <div class="candidate-img">
-                <img src="http://placekitten.com/g/200/200" alt="">
-            </div>
-            <footer>
-                <ul class="">
-                    <li class="u-kill">kill</li>
-                    <li class="u-fuck">fuck</li>
-                    <li class="u-prez">prez</li>
-                </ul>
-            </footer>
-        </article>
+        </div>
     </section>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- <script src="./FitText.js/jquery.fittext.js"></script> -->
+    <script>
+        // $("#headline").fitText(1.2);
+
+        $(document).ready(function() {
+            function kfp_selection_handler(e) {
+                var $target = $(this);
+                if ($target.hasClass("selected")) {
+                    // remove selection styles and return early
+                    $target.removeClass("selected");
+                    return false;
+                }
+
+                // remove similar actions' 'selected' class                
+                var action  = $target.data("action");
+                validate_selection_globally(action); 
+
+                $target.siblings().removeClass("selected");
+                $target.addClass("selected");
+
+                // TODO - select last one if there are already two selected
+            }
+            function validate_selection_globally(action) {
+                var action_selector = "[data-action=\"%\"]".replace("%", action);
+
+                function iterator(i, d) {
+                        var $conflicting_selection = $(d);
+                        $conflicting_selection.removeClass("selected");
+                }
+
+                $(action_selector).each(iterator);
+            }
+            function validate_submission() {
+                console.log("submitttt");
+            }
+
+            function kfp_submit_handler(e) {
+                $this = $(this)
+                validate_submission();
+            }
+
+            $(".js-candidate-action").click(kfp_selection_handler);
+            $(".js-submit").click(kfp_submit_handler);
+        });
+    </script>
 </body>
 </html>
