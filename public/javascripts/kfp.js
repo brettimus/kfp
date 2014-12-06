@@ -16,7 +16,7 @@ function make_scroll_name_img_f(idx, dir) {
     var r = function(cb) {
         return function () {
             $(".candidate-name-" + idx).html(record.peeps[idx].name).addClass('animated bounceIn' + dir);
-            $(".js-candidate-img-" + idx).html('<img width="256" height="256" src="/img/' + img_for_name(record.peeps[idx].name) + '">').addClass('animated bounceInLeft').one(DONE_EVENT, cb);
+            $(".js-candidate-img-" + idx).html('<img width="256" height="256" src="/img/' + img_for_name(record.peeps[idx].name) + '">').addClass('animated bounceIn' + dir).one(DONE_EVENT, cb);
         }
     }
     return r;
@@ -25,7 +25,7 @@ function make_scroll_name_img_f(idx, dir) {
 function fade_in_title_f(idx) {
     var r = function(cb) {
         return function () {
-            $(".candidate-description-" + idx).html(record.peeps[idx].title).addClass('animated bounceInLeft').one(DONE_EVENT, cb);
+            $(".candidate-description-" + idx).html(record.peeps[idx].title).addClass('animated fadeIn').one(DONE_EVENT, cb);
         }
     }
     return r;
@@ -57,9 +57,9 @@ $(function () {
     var ANIMATIONS = [
         make_scroll_name_img_f(0),
         fade_in_title_f(0),
-        make_scroll_name_img_f(1),
+        make_scroll_name_img_f(1, "Up"),
         fade_in_title_f(1),
-        make_scroll_name_img_f(2),
+        make_scroll_name_img_f(2, "Right"),
         fade_in_title_f(2),
     ];
     run_animations(ANIMATIONS);
