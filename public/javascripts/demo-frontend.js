@@ -57,9 +57,8 @@ $(document).ready(function() {
             // EXECUTES ON THE END OF AN ANIMATION!
             $img.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', hideActionSiblings);
         }
-
-
     }
+    
     function ensure_global_uniqueness(action) {
         var action_selector = "[data-action=\"%\"]".replace("%", action);
 
