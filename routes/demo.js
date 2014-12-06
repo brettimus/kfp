@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 module.exports = function(Tuple) {
-    router.get('/', function(req, res) {
-      res.render('demo', {});
-    });
+    // router.get('/', function(req, res) {
+    //   res.render('demo', {});
+    // });
 
     router.get('/oops', function(req, res) {
       res.render('demo-snowden', {});
