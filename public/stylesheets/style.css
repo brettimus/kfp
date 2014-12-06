@@ -184,8 +184,6 @@ nav:after {
     content: "";
 }
 
-
-
 @media (min-width: 460px) {
     nav .headline {
         font-size: 36px;
@@ -193,8 +191,21 @@ nav:after {
 }
 
 @media (min-width: 1200px) {
-  .submit-button {
+  .candidate-container {
+    text-align: center;
+  }
+  .candidate-container .candidate-img img {
+    float: none;
     margin: 0 auto;
+  }
+  .candidate-container footer {
+      clear: left;
+      float: none;
+  }
+  .candidate-container footer ul li {
+    float: left;
+    font-size: 24px;
+    width: 105px;
   }
 }
 
