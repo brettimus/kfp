@@ -16,7 +16,7 @@ function make_scroll_name_img_f(idx, dir) {
     var r = function(cb) {
         return function () {
             $(".candidate-name-" + idx).html(record.peeps[idx].name).addClass('animated bounceIn' + dir);
-            $(".js-candidate-img-" + idx).html('<img width="256" height="256" src="/img/' + img_for_name(record.peeps[idx].name) + '">').addClass('animated bounceIn' + dir).one(DONE_EVENT, cb);
+            $(".js-candidate-img-" + idx).css('background', 'url("/img/' + img_for_name(record.peeps[idx].name) + '")').addClass('animated bounceIn' + dir).one(DONE_EVENT, cb);
         }
     }
     return r;
