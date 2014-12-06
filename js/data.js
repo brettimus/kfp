@@ -1,10 +1,17 @@
 var DB = [
     {
-        peeps: ["Justin Bieber", "Paula Dean", "Miley Cyrus"],
+        peeps: ["Justin Bieber", "Paula Deen", "Miley Cyrus"],
         answer: "KFP",
-        e_kill: "There’s only one choice. It’s Bieber. Boy’s gotta die. But he’s Canadian so really you should feel no qualms.",
-        e_fuck: "Yes, yes, I know you want to fuck Miley Cyrus. But you CANNOT let Paula be President! She’ll bring back black and white water fountains—but the water fountains will be liquid butter.  So, sorry, you’re stuck playing hide the sausage with Paula—just make sure you pre-heat the oven: things are gonna get hot.",
-        e_president: "So Miley is the president! The national bird is now a tongue! It’s a party in the USA."
+        e_0: "There’s only one choice. It’s Bieber. Boy’s gotta die. But he’s Canadian so really you should feel no qualms.",
+        e_1: "Yes, yes, I know you want to fuck Miley Cyrus. But you CANNOT let Paula be President! She’ll bring back black and white water fountains—but the water fountains will be liquid butter.  So, sorry, you’re stuck playing hide the sausage with Paula—just make sure you pre-heat the oven: things are gonna get hot.",
+        e_2: "So Miley is the president! The national bird is now a tongue! It’s a party in the USA."
+    },
+    {
+        peeps: ["p0", "p1", "p2"],
+        answer: "FKP",
+        e_0: "e0",
+        e_1: "e1",
+        e_2: "e2"
     },
 /*    , 'KFP'],
         peeps: ['James Franco', 'Seth Rogen', 'Willie Nelson'],
