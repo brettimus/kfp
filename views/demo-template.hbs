@@ -27,7 +27,7 @@
                 <h2 class="candidate-name">{{name}}</h2>
                 <p class="text-muted candidate-description">{{description}}</p>
             </header>
-            <div class="candidate-img js-candidate-img">
+            <div class="candidate-img js-candidate-img-{{@index}}">
                 <img src="http://placekitten.com/g/200/200" alt="">
             </div>
             <footer>
@@ -76,3 +76,5 @@
         })
     });
 </script>
+<script src="/javascripts/data.js"></script>
+<script src="/javascripts/kfp.js"></script>
