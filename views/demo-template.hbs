@@ -24,11 +24,10 @@
         {{#each candidates}}
         <article class="candidate-container col-lg-4 js-candidate-container">
             <header>
-                <h2 class="candidate-name">{{name}}</h2>
-                <p class="text-muted candidate-description">{{description}}</p>
+                <h2 class="candidate-name candidate-name-{{@index}}">{{name}}</h2>
+                <p class="text-muted candidate-description candidate-description-{{@index}}">{{description}}</p>
             </header>
-            <div class="candidate-img js-candidate-img">
-                <img src="http://placekitten.com/g/200/200" alt="">
+            <div class="candidate-img js-candidate-img js-candidate-img-{{@index}}">
             </div>
             <footer>
                 <ul class="">
@@ -65,10 +64,9 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="/javascripts/demo-frontend.js"></script>
-<!-- <script src="/javascripts/FitText.js/jquery.fittext.js"></script> -->
+<script src="/javascripts/data.js"></script>
+<script src="/javascripts/kfp.js"></script>
 <script>
-    // $("#headline").fitText(1.2);
-
     $(document).ready(function() {
         // simple tooltip wuddeva
         $(function () {
@@ -86,3 +84,4 @@
   ga('send', 'pageview');
 
 </script>
+
