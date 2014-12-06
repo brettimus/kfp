@@ -1,0 +1,211 @@
+@font-face {
+    font-family: armalite-rifle;
+    src: url(/fonts/Armalite-Rifle/armalite_rifle.ttf);
+}
+@font-face {
+    font-family: overlock;
+    src: url(/fonts/overlock/Overlock-Black.ttf);
+}
+
+body {
+    background: #fefffe;
+    color: #0f1108;
+    font-family: Lato;
+    font-weight: 100;
+    padding-top: 50px;
+}
+
+
+.halp {
+    background: #0f1108;
+    border-radius: 50em;
+    color: #fff;
+    cursor: hand;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+    width: 30px;        
+}
+
+nav {
+    background: #fefffe;
+    border-bottom: solid #0f1108 3px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+nav:after {
+    content: "";
+    clear: both;
+}
+
+    nav .headline {
+        float: left;
+        font-size: 24px;
+        margin-top: 0;
+        text-align: left;
+    }
+
+
+    .navbtn {
+        background: black;
+        border-radius: 50em;
+        color: white;
+        float: right;
+        height: 40px;
+        line-height: 40px;
+        margin: 3px;
+        text-align: center;
+        width: 40px;
+    }
+    .navbtn:hover {
+        cursor: pointer;
+    }
+    .navbtn-next:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+
+/* end nav */
+/* begin main */
+.main-container {
+    margin-top: 30px;
+}
+
+.candidate-container {
+    min-height: 400px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+    .candidate-container header {
+        margin-bottom: 25px;
+    }
+
+        .candidate-container header .candidate-name {
+            font-family: Lato;
+            font-size: 40px;
+            font-weight: 300;
+        }
+        .candidate-container header .candidate-description {
+            font-family: Lato;
+            font-size: 25px;
+            font-weight: 300;
+        }
+    .candidate-container .candidate-img {
+        width: 100%;
+    }
+        .candidate-container .candidate-img img {
+            border: solid;
+            border-radius: 50em;
+            display: block;
+            float: left;
+        }
+    .candidate-container footer {
+        float: left;
+    }
+    /*clearfix*/
+    .candidate-container footer:after {
+        clear: both;
+        content: "";
+    }
+        .candidate-container footer ul {
+            list-style-type: none;
+            margin-left: 25px;
+            padding: 0;
+        }
+            .candidate-container footer ul li {
+                font-size: 30px;
+                height: 65px;
+                line-height: 65px;
+                opacity: 0.7;
+            }
+            .candidate-container footer ul li:hover {
+                cursor: hand;
+                opacity: .9;
+            }
+
+            li.selected {
+                opacity: 1 !important;
+            }
+
+            .selected[data-action="kill"] .fa,
+            .selected[data-action="kill"] .fa:hover {
+                color: #651d0a;
+                color: rgba(101, 29, 10, 1);
+                text-shadow: 2px 2px 2px #888;
+            }
+            .selected[data-action="fuck"] .fa,
+            .selected[data-action="fuck"] .fa:hover {
+                color: #0f1108; /* needs a real color... */
+                opacity: 1;
+                text-shadow: 2px 2px 2px #888;
+            }
+            .selected[data-action="prez"] .fa,
+            .selected[data-action="prez"] .fa:hover {
+                color: #2b0065;
+                color: rgba(43, 0, 101, 1);
+                text-shadow: 2px 2px 2px #888;
+            }
+
+
+.u-kill-brand {
+    color: #651d0a;
+    font-family: armalite-rifle, sans-serif;
+}
+.u-fuck-brand {
+    font-family: 'Pacifico', cursive;
+}
+.u-prez-brand {
+    color: #2b0065;
+    font-family: overlock, serif;
+}
+.u-pacifico {
+    font-family: 'Pacifico', cursive;
+}
+.u-disabled {
+    pointer-events: none;
+    opacity: 0.2;
+    text-decoration: line-through;
+}
+
+.u-clearfix:after {
+    clear: both;
+    content: "";
+}
+
+@media (min-width: 460px) {
+    nav .headline {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 1200px) {
+  .candidate-container {
+    text-align: center;
+  }
+  .candidate-container .candidate-img img {
+    float: none;
+    margin: 0 auto;
+  }
+  .candidate-container footer {
+      clear: left;
+      float: none;
+  }
+  .candidate-container footer ul li {
+    float: left;
+    font-size: 24px;
+    width: 33%
+  }
+}
+

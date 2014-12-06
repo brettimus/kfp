@@ -1,0 +1,24 @@
+#nsa {
+    background-color: white;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+#nsa h1 {
+    background: black;
+    color: white;
+    height: 80px;
+    margin-top: -50px;
+    margin-bottom: 0;
+    padding-top: 10px;
+    text-align: left;
+}
+
+#nsa p {
+    background: black;
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+    text-align: left;
+}
