@@ -2,8 +2,8 @@ var pg = require('pg').native,
     connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/killfuck',
     client,
     query,
-    tuples_qry = "INSERT INTO tuples (names, descriptions) VALUES ",
-    base_val = "('{%names}', '{%descriptions}')",
+    tuples_qry = "INSERT INTO tuples (names, descriptions, pairings) VALUES ",
+    base_val = "('{%names}', '{%descriptions}', %pairings)",
     tmp_val;
 
 var csv2json = require("csv-to-json");
@@ -32,9 +32,12 @@ for (i = 0; i < numTuples; i += 1) {
     if (members.length === 3) {
         names = members.map(namerator);
         descriptions = members.map(descripterator);
-
-        tmp_val = base_val.replace("%names", names.toString())
-                      .replace("%descriptions", descriptions.toString());
+        console.log(names, descriptions);
+        tmp_val = base_val
+                    .replace("%names", special_toString(names))
+                    .replace("%descriptions", special_toString(descriptions))
+                    .replace("%pairings", (i+1));
+        tuples_qry += tmp_val;
     }
 
     if (i !== numTuples-1) {
@@ -42,6 +45,18 @@ for (i = 0; i < numTuples; i += 1) {
     } else {
         tuples_qry += ";";
     }
+}
+
+function special_toString(myArray) {
+    var result = "",
+        i;
+    for (i = 0; i < myArray.length; i++) {
+        result += "\"" + myArray[i] + "\"";
+        if (i !== myArray.length -1) {
+            result += ",";
+        }
+    }
+    return result;
 }
 
 console.log(tuples_qry);

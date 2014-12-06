@@ -1,0 +1,76 @@
+<nav>
+    <header>
+       <h1 id="headline" class="headline">
+           <span class="u-kill-brand">Kill &nbsp;</span>
+           <span class="u-fuck-brand">Fuck &nbsp;</span>
+           <span class="u-prez-brand">Elect</span>
+       </h1>
+       <div class="">
+            <a class="navbtn navbtn-next fa fa-arrow-right js-next" 
+                data-toggle="tooltip" data-placement="bottom" 
+                title="Play again"></a>
+            <div class="navbtn navbtn-info fa fa-info js-reveal"
+                data-toggle="tooltip" data-placement="bottom" 
+                title="Get the answers"></div>
+            <div class="navbtn navbtn-reload fa fa-refresh js-reload"
+                    data-toggle="tooltip" data-placement="bottom" 
+                    title="Refresh your answers"> </div>
+       </div>
+    </header>
+</nav>
+<section class="container main-container">
+    <div class="row">
+        {{#each candidates}}
+        <article class="candidate-container col-lg-4 js-candidate-container">
+            <header>
+                <h2 class="candidate-name">{{name}}</h2>
+                <p class="text-muted candidate-description">{{description}}</p>
+            </header>
+            <div class="candidate-img js-candidate-img">
+                <img src="http://placekitten.com/g/200/200" alt="">
+            </div>
+            <footer>
+                <ul class="">
+                    <li class="js-candidate-action u-kill" data-action="kill">
+                        <i class="fa fa-bomb"></i>
+                        kill
+                    </li>
+                    <li class="js-candidate-action u-fuck" data-action="fuck">
+                        <i class="fa fa-thumbs-up"></i>
+                        fuck
+                    </li>
+                    <li class="js-candidate-action u-prez" data-action="prez">
+                        <i class="fa fa-institution"></i>
+                        elect
+                    </li>
+                </ul>
+            </footer>
+        </article>
+        {{/each}}
+
+    </div>
+{{!--     <div class="row">
+        <article class="candidate-container col-lg-12 js-candidate-container u-min-height-fix u-max-width-fix">
+                <button class="submit-button fa fa-refresh js-reload">reload</button>
+        </article>  
+        <article class="candidate-container col-lg-12 js-candidate-container u-min-height-fix u-max-width-fix">
+                <a href="/demo/{{next}}" class="submit-button fa fa-arrow-right js-next">next</a>
+        </article>        
+    </div> --}}
+</section>
+<div class="halp" data-toggle="tooltip" data-placement="top" title="Here is some helpful text about killing fucking and electing people.">
+    ?
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- <script src="/javascripts/FitText.js/jquery.fittext.js"></script> -->
+<script>
+    // $("#headline").fitText(1.2);
+
+    $(document).ready(function() {
+        // simple tooltip wuddeva
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+    });
+</script>
