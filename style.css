@@ -1,0 +1,207 @@
+@font-face {
+    font-family: armalite-rifle;
+    src: url(./fonts/Armalite-Rifle/armalite_rifle.ttf);
+}
+@font-face {
+    font-family: overlock;
+    src: url(./fonts/overlock/Overlock-Black.ttf);
+}
+
+body {
+    background: #fefffe;
+    color: #0f1108;
+    font-family: Lato;
+    font-weight: 100;
+    padding-top: 50px;
+}
+
+.halp {
+    background: #0f1108;
+    border-radius: 50em;
+    color: #fff;
+    cursor: hand;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    right: 0;
+    width: 30px;        
+}
+
+nav {
+    background: #fefffe;
+    border-bottom: solid #0f1108 3px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+nav:after {
+    content: "";
+    clear: both;
+}
+
+    nav .headline {
+        margin-top: 0;
+        text-align: left;
+    }
+
+/*header .headline {
+    font-size: 80px;
+    margin-top: 0;
+    padding: 0 0 20px 0;
+    text-align: center;
+}*/
+
+.flipper {
+    background: black;
+    border-radius: 50em;
+    color: white;
+    height: 40px;
+    width: 40px;
+}
+
+.main-container {
+    margin-top: 30px;
+}
+
+.candidate-container {
+    box-sizing: border-box;
+    /*border: solid #0f1108 10px;*/
+    min-height: 400px;
+    max-width: 500px;
+    margin: 0 auto 10px auto;
+    padding: 0;
+}
+
+    .candidate-container header {
+        margin-bottom: 25px;
+    }
+
+        .candidate-container header .candidate-name {
+            font-family: Lato;
+            font-size: 40px;
+            font-weight: 300;
+        }
+        .candidate-container header .candidate-description {
+            font-family: Lato;
+            font-size: 25px;
+            font-weight: 300;
+        }
+    .candidate-container .candidate-img {
+        width: 100%;
+    }
+        .candidate-container .candidate-img img {
+            border: solid;
+            display: block;
+            float: left;
+        }
+    .candidate-container footer {
+        float: left;
+    }
+    /*clearfix*/
+    .candidate-container footer:after {
+        clear: both;
+        content: "";
+    }
+        .candidate-container footer ul {
+            list-style-type: none;
+            margin-left: 10px;
+            padding: 0;
+        }
+            .candidate-container footer ul li {
+                font-size: 30px;
+                line-height: 65px;
+                height: 65px;
+            }
+            .candidate-container footer ul li:hover {
+                cursor: hand;
+                opacity: 0.7;
+            }
+
+            .selected[data-action="kill"],
+            .selected[data-action="kill"]:hover {
+                background: #651d0a;
+                background: rgba(101, 29, 10, 1);
+                color: #fefffe;
+            }
+            .selected[data-action="kill"]:hover {
+                opacity: 0.91;
+            }
+            .selected[data-action="fuck"],
+            .selected[data-action="fuck"]:hover {
+                background: #0f1108;
+                color: #fefffe;
+            }
+            .selected[data-action="fuck"]:hover {
+                opacity: 0.91;
+            }
+            .selected[data-action="prez"],
+            .selected[data-action="prez"]:hover {
+                background: #2b0065;
+                background: rgba(43, 0, 101, 1);
+                color: #fefffe;
+            }
+            .selected[data-action="prez"]:hover {
+                opacity: 0.91;
+            }
+
+
+
+.submit-container {
+    padding: 0;
+    width: 100%;
+}
+    .submit-container .submit-button {
+        border: solid #000 10px;
+        box-sizing: border-box;
+        font-size: 40px;
+        font-weight: 300;
+        height: 75px;
+        margin: 0 auto;
+        width: 33.33%;
+        min-width: 300px;
+        max-width: 500px;
+        text-align: center;
+    }
+
+    .submit-container .submit-button:hover {
+        cursor: pointer;
+        -moz-box-shadow:    inset 0 0 3px #000000;
+        -webkit-box-shadow: inset 0 0 3px #000000;
+        box-shadow:         inset 0 0 3px #000000;
+    }
+
+.u-kill-brand {
+    color: #651d0a;
+    font-family: armalite-rifle, sans-serif;
+}
+.u-fuck-brand {
+    /*color: #651d0a;*/
+    font-family: 'Pacifico', cursive;
+}
+.u-prez-brand {
+    color: #2b0065;
+    font-family: overlock, serif;
+}
+
+.u-pacifico {
+    font-family: 'Pacifico', cursive;
+}
+
+@media (min-width: 1200px) {
+/*    .candidate-container footer ul li {
+        height: 65px;
+    }*/
+  .submit-container .submit-button {
+    margin: 0 auto;
+    width: 33.33%;
+  }
+}
+
