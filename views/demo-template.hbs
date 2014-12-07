@@ -1,21 +1,22 @@
 <nav>
     <header>
        <h1 id="headline" class="headline">
-           <span class="u-kill-brand">Kill &nbsp;</span>
-           <span class="u-fuck-brand">Fuck &nbsp;</span>
-           <span class="u-prez-brand">Marry</span>
+           <span class="u-kill-brand">kill &nbsp;</span>
+           <span class="u-fuck-brand">fuck &nbsp;</span>
+           <span class="u-prez-brand">prez</span>
+
        </h1>
        <div class="">
             <a class="navbtn navbtn-next fa fa-arrow-right js-next"
                 href="{{next}}" 
                 data-toggle="tooltip" data-placement="bottom" 
                 title="Play again"></a>
-            <div class="navbtn navbtn-info fa fa-info js-reveal"
+{{!--             <div class="navbtn navbtn-info fa fa-info js-reveal"
                 data-toggle="tooltip" data-placement="bottom" 
                 title="Get the answers"></div>
             <div class="navbtn navbtn-reload fa fa-refresh js-reload"
                     data-toggle="tooltip" data-placement="bottom" 
-                    title="Refresh your answers"> </div>
+                    title="Refresh your answers"> </div> --}}
        </div>
     </header>
 </nav>
@@ -42,7 +43,7 @@
                     </li>
                     <li class="js-candidate-action u-prez" data-overlay="flag.gif">
                         <i class="fa fa-institution"></i>
-                        elect
+                        prez
                     </li>
                 </ul>
             </footer>
@@ -65,9 +66,9 @@
     <a href="{{next}}" title="Play again">NEXT</a>
     <hr/>
 </section>
-<div class="halp" data-toggle="tooltip" data-placement="top" title="Here is some helpful text about killing fucking and electing people.">
+{{!-- <div class="halp" data-toggle="tooltip" data-placement="top" title="Here is some helpful text about killing fucking and electing people.">
     ?
-</div>
+</div> --}}
 <script>
 var href = window.location.href;
 var record_index = parseInt(href.charAt(href.length-1)) - 1;

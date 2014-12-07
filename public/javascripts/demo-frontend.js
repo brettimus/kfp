@@ -2,7 +2,7 @@ $(document).ready(function() {
     // animations when 
     var action_map = {
                   "kill": { animation: "hinge"},
-                  "fuck": { animation: "pulse", delayed_animation: { delay: 3000, animation: "rollOut" }},
+                  "fuck": { animation: "pulse", delayed_animation: { delay: 1500, animation: "rollOut" }},
                   "prez": { animation: "flipOutY"},
                 };
 
@@ -46,6 +46,7 @@ $(document).ready(function() {
             $("[data-overlay=\"%\"]".replace("%", overlay)).addClass("u-disabled");
             $(".selected[data-overlay=\"%\"]".replace("%", overlay)).removeClass("u-disabled");
         }
+        console.log($target);
         hideActionSiblings();
     }
 
@@ -72,15 +73,21 @@ $(document).ready(function() {
             setTimeout(function() {
                 $img.addClass(delayed_animation.animation);
                 // EXECUTES ON THE END OF AN ANIMATION!
-                $img.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', hideActionSiblings);
+                $img.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                    hideActionSiblings();
+                    $img.hide(700);
+                });
 
             }, delayed_animation.delay);
         } else {
             // EXECUTES ON THE END OF AN ANIMATION!
-            $img.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', hideActionSiblings);
+            $img.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                hideActionSiblings();
+                $img.hide();
+            });
         }
     }
-    
+
     function ensure_global_uniqueness(action) {
         var action_selector = "[data-action=\"%\"]".replace("%", action);
 
