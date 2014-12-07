@@ -199,21 +199,27 @@ nav:after {
   font-weight: 300;
   margin-bottom: 25px;
 }
+.lp-subheader {
+    font-size: 35px;
+    margin-top: 25px;
+}
 
 .lp-feature {
     text-align: center;
 }
 
 .lp-circ {
-    /*background: rgba(0,0,0, 0.25);*/
     border-radius: 50em;
     border: solid black 5px;
     /*color: white;*/
     height: 150px;
     margin: 5px auto;
-    padding: 8px;
+    /*padding: 8px;*/
     width: 150px;
 }
+    .lp-circ .fa {
+        margin-top: 30px;
+    }
 .lp-demo-button {
     background: black;
     border-radius: 10px;
