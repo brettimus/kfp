@@ -152,7 +152,11 @@ var makeHistogram = function(svg, dims, data) {
             fill: function(d) { return barColorScale(d.count); },
             "class": "bar"
         },
-        xAxisText: {},
+        xAxisText: {
+            dx: "-.8em",
+            dy: ".15em",
+            transform: function(d) { return "rotate(-55)"; },
+        },
         yAxisText: {
             y: 6,
             dy: ".71em",
@@ -170,7 +174,8 @@ var makeHistogram = function(svg, dims, data) {
         .attr("class", "x axis hist")
         .attr("transform", "translate(" + [0, height] + ")")
         .call(xAxis)
-        .text("HI");
+        .append("text")
+        .attr(attrs.xAxisText);
     svg
         .append("g")
         .attr("class", "y axis hist")
@@ -247,11 +252,9 @@ var makeHistogram = function(svg, dims, data) {
 
         svg
             .select(".x.axis")
-            .attr("transform", "translate(" + [barWidth/2 , height] + ")")
-            .call(xAxis)
-            .selectAll("text")
-            .style("text-anchor", "end")
-            .attr(attrs.xAxisText);
+            .attr("transform", "translate(" + [0, height] + ")")
+            .call(xAxis);
+
         svg
             .select(".y.axis")
             .transition()
