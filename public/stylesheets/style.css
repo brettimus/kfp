@@ -249,16 +249,106 @@ nav:after {
     .stat-circ .fa {
         margin-top: 25px;
     }
+
+.chart-container {
+    padding: 20px;
+    text-align: center;
+}
+
 .viz-title {
     font-size: 35px;
     font-weight: 100;
-    /*margin-top: 15px;*/
+    margin-bottom: 10px;
     text-align: center;
 }
 .viz-title-em {
     font-size: 40px;
     font-weight: 300;
 }
+
+/*d3 stuff*/
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+  shape-rendering: crispEdges;
+}
+
+/*// *** Axes *** //*/
+/*// General axis styles*/
+.axis line, 
+.axis path {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+    font-size: 11px;
+}
+/*// Make axis label text slightly smaller*/
+.x text,
+.y text {
+    font-family: "brandon-grotesque", sans-serif;
+    font-size: .9em;
+}
+    /*// Histogram styles*/
+    /*.x.axis.hist path,*/
+    .y.axis.hist path,
+    .y.axis.hist line {
+        display: none;  /*// removes explicit x- and y-axes, as well as y-axis tick-marks*/
+    }
+/*// *** Gridlines *** //*/
+.grid .tick {
+    stroke: lightgrey;
+    opacity: 0.7;
+}
+.grid path {
+    stroke-width: 0;
+}
+.row .chart-container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+/*// *** Tooltips *** //*/
+.d3-tip {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+    color: #fff;
+
+    font-weight: bold;
+    line-height: 1;
+    padding: 12px;
+    text-align: center;
+}
+
+    /*// Creates a small triangle extender for the tooltip*/
+    .d3-tip:after {
+        box-sizing: border-box;
+        color: rgba(0, 0, 0, 0.8);
+        content: "\25BC";
+        display: inline;
+        font-size: 10px;
+        line-height: 1;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+
+    /*// Style northward tooltips differently*/
+    .d3-tip.n:after {
+        left: 0;
+        margin: -1px 0 0 0;
+        top: 100%;
+    }
+
+    .d3-tip h5 {
+        border-bottom: solid white 1px;
+        font-size: 14px;
+    }
+
+    .d3-tip p {
+        font-size: 12px;
+    }
 
 /* responsivity */
 

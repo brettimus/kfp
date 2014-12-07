@@ -1,9 +1,10 @@
-var makeHistogram = function(svg, data) {
+var makeHistogram = function(svg, dims, data) {
     // data structure is {kill: [], fuck: [], prez: []}
+    console.log(dims);
     var liveData,
-        margin = { top: 10, right: 40, bottom: 50, left: 55 },
-        width,
-        height,
+        margin = dims.margin,
+        width = dims.width,
+        height = dims.height,
         barWidth,
         barMargin,
         attrs,
@@ -62,7 +63,7 @@ var makeHistogram = function(svg, data) {
         svg.select("." + clickedClassName)
             .classed(clickedClassName, false)
             .attr({
-                fill: function(d) { return barColorScale(d[field]); },
+                fill: function(d) { return barColorScale(d.count); },
                 "stroke-width": 0
             });
 
@@ -78,27 +79,28 @@ var makeHistogram = function(svg, data) {
 
 
     var _updateDims = function() {
-        width = svg.attr("width");
-        height = svg.attr("height");
+        width = dims.width;
+        height = dims.height;
+        console.log(width, height);
     };
 
     var _updateBarDims = function() {
-        barWidth = Math.ceil(width / data.length);
+        barWidth = Math.ceil(width / liveData.length);
         barMargin = Math.floor(barWidth / 10);
         attrs.bar.width = barWidth - barMargin;
     };
     var _updateScales = function() {
         // categorical scale
-        xScale = d3.time.scale().ordinal();
+        var names = liveData.map(function(d) { return d.name; });
+        console.log(names);
+        xScale = d3.scale.ordinal().domain(names).rangeRoundBands([0, width]);
         yScale = d3.scale.linear().range([height, 0]);
 
         // need labels
-        var labels = liveData.map(function(d) { return d.name; });
-        xScale.domain(labels);
 
-        yMax = d3.max(data, function(d) { return d.count; });
+        yMax = d3.max(liveData, function(d) { return d.count; });
         yScale.domain([0, yMax]);
-        barColorScale.domain(d3.extent(data, function(d) { return d.count; }));
+        barColorScale.domain(d3.extent(liveData, function(d) { return d.count; }));
     };
 
     var _updateAxes = function() {
@@ -122,21 +124,19 @@ var makeHistogram = function(svg, data) {
         var _update_xAxis = function() {
             make_x_axis = function () {
                 var labels = liveData.map(function(d) { return d.name; });
+                console.log();
                 return d3.svg.axis().scale(xScale)
-                        .orient("bottom")
-                        .tickValues(labels);
+                        .orient("bottom");
             };
             xAxis = make_x_axis();
         };
 
 
     var update_sensitive_values = function(category) {
-        // SEQUENCING IS VERY IMPORTANT HERE!
-
-        _updateDims();
 
         liveData = data[category];
-
+        // .sort(function(a, b) { return a.count - b.count; });
+        _updateDims();
         _updateBarDims();
         _updateScales();
         _updateAxes();
@@ -145,7 +145,7 @@ var makeHistogram = function(svg, data) {
     // define an attributes object
     attrs = {
         bar: {
-            x: function(d, i) { return xScale(d.name) + barMargin; },
+            x: function(d, i) { return i * xScale.rangeBand(); },
             y: function(d) { return yScale(d.count); },
             width: barWidth - barMargin,
             height: function(d) { return height - yScale(d.count); },
@@ -168,11 +168,9 @@ var makeHistogram = function(svg, data) {
     svg
         .append("g")
         .attr("class", "x axis hist")
-        .attr("transform", "translate(" + [barWidth/2 , chart.height] + ")")
+        .attr("transform", "translate(" + [0, height] + ")")
         .call(xAxis)
-        .selectAll("text")
-        .style("text-anchor", "end")
-        .attr(attrs.xAxisText);
+        .text("HI");
     svg
         .append("g")
         .attr("class", "y axis hist")
@@ -198,7 +196,7 @@ var makeHistogram = function(svg, data) {
         .on("mouseover", mouseOverHandler)
         .on("click", clickHandler)
         .transition()
-        .duration(function(d, i) { return i * 500 / data.length; })
+        .duration(function(d, i) { return i * 500 / liveData.length; })
         .attr(attrs.bar);
     svg.
         on("mouseout", mouseOutHandler);
@@ -206,10 +204,11 @@ var makeHistogram = function(svg, data) {
     // category is kill, fuck, or prez
     var update = function(category) {
 
-        update_sensitive_values(timespan, offset);
+        update_sensitive_values(category);
+
         var bars = svg
                     .selectAll(".bar")
-                    .data(data);
+                    .data(liveData);
         bars
             .exit()
             .transition()
@@ -221,7 +220,7 @@ var makeHistogram = function(svg, data) {
             .remove();
         bars
             .transition()
-            .delay(function(d,i) { return (i * 400 / data.length) ; })
+            .delay(function(d,i) { return (i * 400 / liveData.length) ; })
             .duration(600)
             .attr(attrs.bar);
         bars
@@ -235,7 +234,7 @@ var makeHistogram = function(svg, data) {
                 fill: attrs.bar.fill
             })
             .transition()
-            .delay(function(d,i) { return (i * 400 / data.length) + 150; })
+            .delay(function(d,i) { return (i * 400 / liveData.length) + 150; })
             .duration(600)
             .attr(attrs.bar);  // add new
 
@@ -248,7 +247,7 @@ var makeHistogram = function(svg, data) {
 
         svg
             .select(".x.axis")
-            .attr("transform", "translate(" + [barWidth/2 , chart.height] + ")")
+            .attr("transform", "translate(" + [barWidth/2 , height] + ")")
             .call(xAxis)
             .selectAll("text")
             .style("text-anchor", "end")

@@ -39,7 +39,7 @@
         </div>
     </div>
     <hr>
-    <div class="row">
+    <div class="row chart-container">
         <p class="viz-title">
             the most <span class="js-viz-title viz-title-em">killable</span> candidates
         </p>
@@ -52,7 +52,11 @@
 <script src="/javascripts/demo-stats.js"></script>
 <script>
     // should eventually be an object of arrays...
-    var data = {kill: [{name: "brett", count: 30}, {name: "richard", count: 100}, {name: "dan", count: 75}]};
+    var data = {
+                kill: [{name: "brett", count: 100}, {name: "richard", count: 35}, {name: "dan", count: 45}],
+                fuck: [{name: "brett", count: 20}, {name: "richard", count: 30}, {name: "dan", count: 75}],
+                prez: [{name: "brett", count: 80}, {name: "richard", count: 200}, {name: "dan", count: 139}],
+                };
 
     $(document).ready(function() {
 
@@ -67,12 +71,10 @@
 
         var chartOptions = {
             width: $("."+chartClass).width(),
-            height: 500,
+            height: 300,
+            margin: { top: 10, right: 40, bottom: 50, left: 55 },
         };
-        console.log(chartOptions);
-        var svg = createChart();
-
-
+        var chart = createChart(chartOptions, data);
 
         $(".js-viz-type").click(changeChartHandler);
         function changeChartHandler(e) {
@@ -84,6 +86,7 @@
             var chartType = $this.data("viz-type"); // or vizType
             updateChartTitle(chartType);
             updateChart(chartType);
+
         }
         function isChartActive($clickedElt) {
             return $clickedElt.hasClass(activeChartClass);
@@ -98,14 +101,24 @@
             $("."+chartTitleClass).text(chartTitles[chartType]);
         }
 
-        function createChart(data) {
-            var svg = d3.select(".js-viz").append("svg")
+        function createChart(chartOptions, data) {
+            console.log(chartOptions);
+            var margin  = chartOptions.margin;
+            var translate = "translate(" + [chartOptions.margin.left, chartOptions.margin.top] + ")";
+            console.log(translate);
+            var svg = d3.select(".js-viz")
+                        .append("svg")
+                        .attr({
+                            height: chartOptions.height,
+                            width: chartOptions.width,
+                        })
+                        .append("g")
+                        .attr("transform", translate);
             // TODO: add resize handler from argus...
-
-            return makeHistogram(svg, data);
+            return makeHistogram(svg, chartOptions, data);
         }
-        function updateChart() {
-
+        function updateChart(chartType) {
+            chart.update(chartType);
         }
     });
 
