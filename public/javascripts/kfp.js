@@ -32,11 +32,16 @@ function fade_in_title_f(idx) {
 }
 
 function run_animations(animations) {
+    // animations: a list of animation functions, each of which accepts
+    //             a callback to be invoked when the animation is done
     var idx;
+    /* last step does nothing */
     var f = function() {}
+    /* chain the animations together in reverse order (ie. set up the dominos) */
     for (idx=animations.length-1; idx>=0; idx--) {
         f = animations[idx](f);
     }
+    /* tip over the first domino */
     f();
 }
 
