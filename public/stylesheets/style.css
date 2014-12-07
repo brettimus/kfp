@@ -104,13 +104,20 @@ nav:after {
         }
     .candidate-container .candidate-img {
         width: 100%;
+        border-radius: 50em;
+        margin: 0 auto;
+        width: 256px;
+        height: 256px;
     }
-        .candidate-container .candidate-img img {
-            border: solid;
-            border-radius: 50em;
-            display: block;
-            float: left;
-        }
+    .candidate-container .candidate-img img {
+        opacity: 0;
+        display: block;
+        float: left;
+        z-index: 10000;
+        border-radius: 50em;
+        width: 256px;
+        height: 256px;
+    }
     .candidate-container footer {
         float: left;
     }

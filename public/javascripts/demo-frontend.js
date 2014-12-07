@@ -24,7 +24,29 @@ $(document).ready(function() {
         ensure_global_uniqueness(action);
         $target.siblings().removeClass("selected");
         $target.addClass("selected");
-        animate_img(action);
+        if (action) {
+            animate_img(action);
+        }
+        var overlay = $target.data("overlay");
+        if (overlay) {
+            animate_overlay($target, overlay);
+        }
+    }
+
+    function animate_overlay($target, overlay) {
+        var url = "/img/" + overlay;
+        var action_selector = "[class*=\"selected\"][data-overlay=\"%\"]".replace("%", overlay);
+        var $img = $(action_selector)
+                    .parents(".js-candidate-container")
+                    .find(".js-candidate-img img");
+
+        $img.before('<img style="opacity:0.5" src="' + url + '">');
+
+        function hideActionSiblings() {
+            $("[data-overlay=\"%\"]".replace("%", overlay)).addClass("u-disabled");
+            $(".selected[data-overlay=\"%\"]".replace("%", overlay)).removeClass("u-disabled");
+        }
+        hideActionSiblings();
     }
 
 
