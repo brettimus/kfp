@@ -7,7 +7,7 @@ function img_for_name(name) {
 var DONE_EVENT = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
 
-var record = DB[0];
+var record = DB[record_index];
 
 function make_scroll_name_img_f(idx, dir) {
     if (dir === undefined) {
@@ -33,23 +33,11 @@ function fade_in_title_f(idx) {
 
 function run_animations(animations) {
     var idx;
-    var f = function() { /*alert("foo");*/ }
+    var f = function() {}
     for (idx=animations.length-1; idx>=0; idx--) {
         f = animations[idx](f);
     }
     f();
-}
-
-function r0() {
-    $("#e0").html(record.e_0).addClass('animated bounceInBottom').one(DONE_EVENT, r1);
-}
-
-function r1() {
-    $("#e1").html(record.e_1).addClass('animated bounceInBottom').one(DONE_EVENT, r2);
-}
-
-function r2() {
-    $("#e2").html(record.e_2).addClass('animated bounceInBottom');
 }
 
 

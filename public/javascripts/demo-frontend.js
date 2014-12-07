@@ -41,6 +41,12 @@ $(document).ready(function() {
                     .find(".js-candidate-img img");
 
         $img.before('<img style="opacity:0.5" src="' + url + '">');
+
+        function hideActionSiblings() {
+            $("[data-overlay=\"%\"]".replace("%", overlay)).addClass("u-disabled");
+            $(".selected[data-overlay=\"%\"]".replace("%", overlay)).removeClass("u-disabled");
+        }
+        hideActionSiblings();
     }
 
 
