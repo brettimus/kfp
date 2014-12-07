@@ -46,6 +46,7 @@ $(document).ready(function() {
             $("[data-overlay=\"%\"]".replace("%", overlay)).addClass("u-disabled");
             $(".selected[data-overlay=\"%\"]".replace("%", overlay)).removeClass("u-disabled");
         }
+        console.log($target);
         hideActionSiblings();
     }
 
