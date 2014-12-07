@@ -1,0 +1,114 @@
+<nav>
+    <header>
+       <h1 id="headline" class="headline">
+           <span class="u-kill-brand">kill &nbsp;</span>
+           <span class="u-fuck-brand">fuck &nbsp;</span>
+           <span class="u-prez-brand">prez</span>
+
+       </h1>
+       <div class="">
+            <a class="navbtn navbtn-next fa fa-home js-next"
+                href="/" 
+                data-toggle="tooltip" data-placement="bottom" 
+                title="Play again"></a>
+{{!--             <div class="navbtn navbtn-info fa fa-info js-reveal"
+                data-toggle="tooltip" data-placement="bottom" 
+                title="Get the answers"></div>
+            <div class="navbtn navbtn-reload fa fa-refresh js-reload"
+                    data-toggle="tooltip" data-placement="bottom" 
+                    title="Refresh your answers"> </div> --}}
+       </div>
+    </header>
+</nav>
+<div class="container">
+    <div class="row stats-row">
+        <div class="col-sm-4 lp-feature">
+            <div class="stat-circ active-viz js-viz-type" data-viz-type="kill">
+                <i class="fa fa-bomb fa-4x"></i>
+            </div>
+        </div>
+        <div class="col-sm-4 lp-feature">
+            <div class="stat-circ js-viz-type" data-viz-type="fuck">
+                <i class="fa fa-thumbs-up fa-4x"></i>
+            </div>
+        </div>
+        <div class="col-sm-4 lp-feature">
+            <div class="stat-circ js-viz-type" data-viz-type="prez">
+                <i class="fa fa-institution fa-4x"></i>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <p class="viz-title">
+            the most <span class="js-viz-title viz-title-em">killable</span> candidates
+        </p>
+        <div class="col-lg-12 js-viz"></div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/javascripts/d3.min.js"></script>
+<script src="/javascripts/d3-tip.js"></script>
+<script src="/javascripts/demo-stats.js"></script>
+<script>
+    // should eventually be an object of arrays...
+    var data = {kill: [{name: "brett", count: 30}, {name: "richard", count: 100}, {name: "dan", count: 75}]};
+
+    $(document).ready(function() {
+
+        var activeChartClass = "active-viz";
+        var chartTitleClass = "js-viz-title";
+        var chartClass = "js-viz";
+        var chartTitles = {
+            kill: "killable",
+            fuck: "fuckable",
+            prez: "presidentable",
+        };
+
+        var chartOptions = {
+            width: $("."+chartClass).width(),
+            height: 500,
+        };
+        console.log(chartOptions);
+        var svg = createChart();
+
+
+
+        $(".js-viz-type").click(changeChartHandler);
+        function changeChartHandler(e) {
+            var $this = $(this);
+            if (isChartActive($this)) return false;
+            modifyInactive();
+            modifyNewlyActive($this);
+
+            var chartType = $this.data("viz-type"); // or vizType
+            updateChartTitle(chartType);
+            updateChart(chartType);
+        }
+        function isChartActive($clickedElt) {
+            return $clickedElt.hasClass(activeChartClass);
+        }
+        function modifyInactive() {
+            $("."+activeChartClass).removeClass(activeChartClass);
+        }
+        function modifyNewlyActive($clickedElt) {
+            $clickedElt.addClass(activeChartClass);
+        }
+        function updateChartTitle(chartType) {
+            $("."+chartTitleClass).text(chartTitles[chartType]);
+        }
+
+        function createChart(data) {
+            var svg = d3.select(".js-viz").append("svg")
+            // TODO: add resize handler from argus...
+
+            return makeHistogram(svg, data);
+        }
+        function updateChart() {
+
+        }
+    });
+
+
+
+</script>

@@ -10,6 +10,10 @@ module.exports = function(Tuple) {
       res.render('demo-snowden', {});
     });
 
+    router.get("/stats", function (req, res) {
+        res.render('demo-stats', {});
+    });
+
     router.get('/:tid', function(req, res) {
         var tuple_id = +req.params.tid;
         var next_id = (tuple_id+1);
@@ -36,8 +40,6 @@ module.exports = function(Tuple) {
             res.render('demo-template', { candidates: candidates, next: next_id });
         });
     });
-
-
 
     return router;
 };
