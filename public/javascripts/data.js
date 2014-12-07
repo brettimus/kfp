@@ -12,9 +12,9 @@ var DB = [
     },
     {
         peeps: [
-            { name:"Beyonce", title:"Star" },
-            { name:"Taylor Swift", title:"She's swift" },
-            { name:"Scarlett Johansson", title:"Screen Darling" },
+            { name:"Voldemort", title:"Distributed Key-Value Storage System" },
+            { name:"Jabba the Hutt", title:"Obese Thing" },
+            { name:"Pepsi Can", title:"Delight" },
         ],
         answer: "KFP",
         e_0: "There's only one choice. It's Bieber. Boy's gotta die. But he's Canadian so really you should feel no qualms.",

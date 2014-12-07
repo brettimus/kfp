@@ -1,6 +1,6 @@
 
 function img_for_name(name) {
-    return name.toLowerCase().replace(" ", "_") + ".jpg";
+    return name.toLowerCase().replace(/ /g, "_") + ".jpg";
 }
 
 
