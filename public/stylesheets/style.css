@@ -201,7 +201,8 @@ nav:after {
 }
 .lp-subheader {
     font-size: 35px;
-    margin-top: 25px;
+    font-weight: 300;
+    margin-top: 35px;
 }
 
 .lp-feature {
