@@ -18,7 +18,7 @@ var DB = [
         peeps: [
             { name:"Voldemort", title:"Distributed Key-Value Database" },
             { name:"Jabba the Hutt", title:"Crime Boss, Slug" },
-            { name:"Pepsi Can", title:"Perfect™" },
+            { name:"Pepsi", title:"Perfect™" },
         ],
     },
 ];
