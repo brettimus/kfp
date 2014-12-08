@@ -7,10 +7,10 @@
 
        </h1>
        <div class="">
-            <a class="navbtn navbtn-next fa fa-arrow-right js-next"
-                href="{{next}}" 
-                data-toggle="tooltip" data-placement="bottom" 
-                title="Play again"></a>
+            <a class="navbtn navbtn-next glyphicon glyphicon-stats"
+                href="/demo/stats" 
+                data-toggle="tooltip" data-placement="left" 
+                title="BIG DATA"></a>
 {{!--             <div class="navbtn navbtn-info fa fa-info js-reveal"
                 data-toggle="tooltip" data-placement="bottom" 
                 title="Get the answers"></div>
@@ -59,16 +59,19 @@
                 <a href="/demo/{{next}}" class="submit-button fa fa-arrow-right js-next">next</a>
         </article>        
     </div> --}}
-    <hr/>
-    <span class='st_facebook_large' displayText='Facebook'></span>
-    <span class='st_twitter_large' displayText='Tweet'></span>
-    <span class='st_googleplus_large' displayText='Google +'></span>
-    <a href="{{next}}" title="Play again">NEXT</a>
-    <hr/>
+
+    <hr>
+    <div class="row next-link">
+      <a href="{{next}}" title="Play again"><i class="fa fa-refresh fa-5x"></i></a>      
+    </div>
+    <hr>
 </section>
-{{!-- <div class="halp" data-toggle="tooltip" data-placement="top" title="Here is some helpful text about killing fucking and electing people.">
-    ?
-</div> --}}
+<footer class="fixed-footer">
+  <span class='st_facebook_large' displayText='Facebook'></span>
+  <span class='st_twitter_large' displayText='Tweet'></span>
+  <span class='st_googleplus_large' displayText='Google +'></span>      
+</footer>
+
 <script>
 var href = window.location.href;
 var record_index = parseInt(href.charAt(href.length-1)) - 1;

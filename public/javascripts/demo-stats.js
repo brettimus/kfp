@@ -1,6 +1,5 @@
 var makeHistogram = function(svg, dims, data) {
     // data structure is {kill: [], fuck: [], prez: []}
-    console.log(dims);
     var liveData,
         margin = dims.margin,
         width = dims.width,
@@ -99,7 +98,7 @@ var makeHistogram = function(svg, dims, data) {
         // need labels
 
         yMax = d3.max(liveData, function(d) { return d.count; });
-        yScale.domain([0, yMax]);
+        yScale.domain([0, 1.05*yMax]);
         barColorScale.domain(d3.extent(liveData, function(d) { return d.count; }));
     };
 
@@ -111,6 +110,7 @@ var makeHistogram = function(svg, dims, data) {
             make_y_axis = function () {
                 return d3.svg.axis().scale(yScale)
                         .orient("left")
+                        .ticks(5)
                         .tickFormat(noDecimalFormat);
             };
             yAxis = make_y_axis();

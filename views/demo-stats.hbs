@@ -7,16 +7,10 @@
 
        </h1>
        <div class="">
-            <a class="navbtn navbtn-next fa fa-home js-next"
-                href="/" 
-                data-toggle="tooltip" data-placement="bottom" 
-                title="Play again"></a>
-{{!--             <div class="navbtn navbtn-info fa fa-info js-reveal"
-                data-toggle="tooltip" data-placement="bottom" 
-                title="Get the answers"></div>
-            <div class="navbtn navbtn-reload fa fa-refresh js-reload"
-                    data-toggle="tooltip" data-placement="bottom" 
-                    title="Refresh your answers"> </div> --}}
+            <a class="navbtn navbtn-next fa fa-institution js-next"
+                href="/demo/finish" 
+                data-toggle="tooltip" data-placement="left" 
+                title="President Predictor (beta)"></a>
        </div>
     </header>
 </nav>
@@ -41,24 +35,41 @@
     <hr>
     <div class="row chart-container">
         <p class="viz-title">
-            the most <span class="js-viz-title viz-title-em">killable</span> candidates
+            the most <span class="js-viz-title viz-title-em">killable</span>
         </p>
         <div class="col-lg-12 js-viz"></div>
     </div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="/javascripts/d3.min.js"></script>
 <script src="/javascripts/d3-tip.js"></script>
 <script src="/javascripts/demo-stats.js"></script>
 <script>
     // should eventually be an object of arrays...
     var data = {
-                kill: [{name: "brett", count: 100}, {name: "richard", count: 35}, {name: "dan", count: 45}],
-                fuck: [{name: "brett", count: 20}, {name: "richard", count: 30}, {name: "dan", count: 75}],
-                prez: [{name: "brett", count: 80}, {name: "richard", count: 200}, {name: "dan", count: 139}],
+                kill: [
+                    {name: "Time", count: 80},
+                    {name: "Kim Jong-un", count: 35},
+                    {name: "Yoga", count: 47},
+                    ],
+                fuck: [
+                    {name: "Cronuts", count: 80}, 
+                    {name: "The Police", count: 200},
+                    {name: "Algebra", count: 40},
+                    ],
+                prez: [
+                    {name: "Britney Spears", count: 34},
+                    {name: "Farmville", count: 64},
+                    {name: "Pepsi", count: 440},
+                    ],
                 };
 
     $(document).ready(function() {
+
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
 
         var activeChartClass = "active-viz";
         var chartTitleClass = "js-viz-title";

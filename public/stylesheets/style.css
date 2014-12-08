@@ -13,6 +13,15 @@ body {
     font-family: Lato;
     font-weight: 100;
     padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    text-align: right;
+    width: 100%;
 }
 
 nav {
@@ -148,6 +157,21 @@ nav:after {
                 text-shadow: 2px 2px 2px #888;
             }
 
+.next-link {
+    text-align: center;
+}
+    .next-link a {
+        color: black;
+        -webkit-transition: -webkit-transform .8s ease-in-out;
+        -ms-transition: -ms-transform .8s ease-in-out;
+        transition: transform .8s ease-in-out; 
+    }
+    .next-link a:hover{
+        opacity: 0.5;
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 
 .u-kill-brand {
     color: #651d0a;
@@ -165,8 +189,8 @@ nav:after {
     font-family: 'Pacifico', cursive;
 }
 .u-disabled {
+    opacity: 0.25 !important;
     pointer-events: none;
-    opacity: 0.2;
     text-decoration: line-through;
 }
 
@@ -187,6 +211,10 @@ nav:after {
     font-weight: 300;
     margin-top: 35px;
 }
+    .lp-subheader span {
+        font-size: 25px;
+        opacity: 0.7;
+    }
 
 .lp-feature {
     text-align: center;
@@ -256,7 +284,7 @@ nav:after {
 }
 
 .viz-title {
-    font-size: 35px;
+    font-size: 45px;
     font-weight: 100;
     margin-bottom: 10px;
     text-align: center;
@@ -284,10 +312,13 @@ nav:after {
     font-size: 11px;
 }
 /*// Make axis label text slightly smaller*/
+.x text {
+    font-size: 2.3em;
+}
 .x text,
 .y text {
-    font-family: "brandon-grotesque", sans-serif;
-    /*font-size: .9em;*/
+    font-family: Lato, sans-serif;
+    font-weight: 300;
 }
     /*// Histogram styles*/
     .x.axis.hist path,
